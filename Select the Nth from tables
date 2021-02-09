@@ -1,5 +1,14 @@
 ## identify the second highest salary from the table
 
+## Method 1:
 select distinct(salary) from employees  #identify distinct salary then sort
 order by salary desc
 limit 1 offset 1  ### selected top 1 and top 2 salaries but remove the top 1 use offset
+
+## Method 2: If I want to select thrid highest salary, which means only 2 salaries is higher than my desired result. 
+### Thus, compare two tables when only contains the exactly number of salary higher than my desired result. 
+
+select max(salary) from employee e1
+where N-1=(
+select count(distinct (salary))from employee e2 
+where e2.salary>e1.salary # identify the salarires greater than e1.salary.
