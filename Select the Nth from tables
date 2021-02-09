@@ -1,0 +1,5 @@
+## identify the second highest salary from the table
+
+select distinct(salary) from employees  #identify distinct salary then sort
+order by salary desc
+limit 1 offset 1  ### selected top 1 and top 2 salaries but remove the top 1 use offset
