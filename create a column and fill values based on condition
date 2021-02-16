@@ -1,0 +1,8 @@
+Write a query to display the employee id, name ( first name and last name ), 
+salary and the SalaryStatus column with a title HIGH and LOW respectively for those employees whose salary is more than and less than the average salary of all employees.
+
+select employee_id, first_name,last_name,salary,
+case when salary>=(select avg(salary) from employees) then 'High'
+else 'Low'
+end as SalaryStatus
+from employees;
