@@ -1,0 +1,5 @@
+Write a query which is looking for the names of all employees whose salary is greater than 50% of their department's total salary bill.
+Select frist_name,last_name from employees e1
+where salary>(
+select sum(salary)*0.5 from employees e2 ## no need to use group by
+where e2.department_id=e1.department_id)
